@@ -1,0 +1,21 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+}
+
+#body {
+  margin: 20px;
+  font-size: 27px;
+}
+
+.title {
+  font-size: 35px;
+}
+
+.item {
+  margin-top: 5px;
+}
