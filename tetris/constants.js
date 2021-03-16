@@ -35,3 +35,7 @@ const piece_Z = [[0, 0, 0],
 const piece_T = [[0, 0, 0],
                  [1, 1, 1],
                  [0, 1, 0]];
+
+const pieces = [piece_I, piece_J, piece_L, piece_O, piece_S, piece_Z, piece_T]
+
+// const pieces_dict = [{piece: piece_J, color: "TODO"}]

@@ -1,23 +1,36 @@
 let piece;
+let platform;
 
 function setup() {
     createCanvas(canvas_width, canvas_height);
-    piece = new Piece(piece_T,
-                      width/2,
-                      box_dimension,
-                      color={r:150, g:48, b:95});
+    platform = new Platform()
+    generate_new_piece();
     setInterval(() => apply_gravity(), timer)
     
 }
 
 function draw() {
     background(background_color);
+    platform.show();
     piece.show();
 
 }
 
+let generate_new_piece = () => {
+    let index = Math.floor(Math.random() * pieces.length)
+    piece = new Piece(pieces[index],
+                      width/2,
+                      box_dimension,
+                      color={r:150, g:48, b:95});  // TODO: one colour per piece
+}
+
 let apply_gravity = () => {
-    piece.y += box_dimension;
+    if (!piece.can_collide(box => box.y === height - box_dimension))
+        piece.y += box_dimension;
+    else {
+        platform.place_piece(piece);
+        generate_new_piece();
+    }
 }
 
 function keyPressed() {
